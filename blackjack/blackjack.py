@@ -36,7 +36,6 @@ import os
 import time
 from art import logo
 
-
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 def deal_card(list_cards):
@@ -112,14 +111,13 @@ if decision == "1":
     time.sleep(3)
     print("Dealer is now distributing the cards...")
     time.sleep(3)
+    
     game_state = True
     while game_state == True:
-        for i in range(4):
-            func_deal_card = deal_card(cards)
-            if len(user_cards) != 2:
-                user_cards.append(func_deal_card)
-            elif len(user_cards) == 2:
-                computer_cards.append(func_deal_card)
+        for i in range(2):
+            user_cards.append(deal_card(cards))
+            computer_cards.append(deal_card(cards))
+                
         print(f"This is your hand: {user_cards}")
         print(f"This is the computer's hand: {computer_cards[0]}, x")
         calculate_score(user_cards)
@@ -172,17 +170,18 @@ if decision == "1":
         condition = input("Do you want to play again? Y for yes or N for no: ").capitalize().strip()
         if condition == "N":
             os.system("cls")
+            print(f"Scoreboard: \nPlayer: {user_cards}\nComputer: {computer_wins}")
             if player_wins > computer_wins:
                 print(f"Player has the highest score. Congratulations!")
-                time.sleep(1.5)
+                time.sleep(3)
             elif player_wins == computer_wins:
                 print(f"It's a tie. Congratulations, still!")
-                time.sleep(1.5)
+                time.sleep(3)
             elif player_wins < computer_wins:
                 print(f"Computer has the highest score. Better luck next time.")
-                time.sleep(1.5)
+                time.sleep(3)
             print("Thank you for playing the game.")
-            time.sleep(1.5)
+            time.sleep(3)
             os.system("cls")
             game_state = False
         elif condition == "Y":
