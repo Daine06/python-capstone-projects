@@ -170,7 +170,7 @@ if decision == "1":
         condition = input("Do you want to play again? Y for yes or N for no: ").capitalize().strip()
         if condition == "N":
             os.system("cls")
-            print(f"Scoreboard: \nPlayer: {user_cards}\nComputer: {computer_wins}")
+            print(f"Scoreboard: \nPlayer: {player_wins}\nComputer: {computer_wins}")
             if player_wins > computer_wins:
                 print(f"Player has the highest score. Congratulations!")
                 time.sleep(3)
